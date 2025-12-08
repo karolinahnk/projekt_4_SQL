@@ -5,30 +5,15 @@ Cílem projektu bylo zanalyzovat vývoj mezd a cen potravin v ČR a porovnat je 
 czechia_payroll - mzdy
 czechia_price - ceny potravin
 economies - makroekonomická data
+a další
 
-Výsledkem jsou 2 vytvořené tabulky, které jsou navzájem propojené a následná interpretace vývoje mezd, cen potravin a jejich vztahu k ekonomice. Doplněné o doplňkové číselníky jako jsou kategorie potravin, kraje...
+Výsledkem jsou 2 vytvořené tabulky:
 
 Primární tabulka: t_karolina_hynkova_project_sql_primary_final
-Obsahuje konsolidovaná data za ČR:
-rok (year)
-průměrná mzda (avg_wage)
-průměrná cena mléka (price_milk)
-průměrná cena chleba (price_bread)
+-Pro data mezd a cen potravin pro ČR sjednocených na společné roky
 
 Sekundární tabulka: t_karolina_hynkova_project_sql_secondary_final
-Obsahuje ekonomická data (HDP, populace) pro ČR:
-rok (year)
-prům. mzda (avg_wage)
-cena mléka (price_milk) 
-cena chleba	(price_bread) 
-litry mleka	(litres_milk)
-kg chleba (kg_bread)
-meziroční prům. mzda (wage_yoy) 
-meziroční hodnoty mleka	(milk_yoy)
-meziroční hodnoty chleba (bread_yoy)
-HDP	(gdp)
-gini koeficient	(gini)
-populace (population) 
+- Pro dodatečná data o dalších evropských státech
 
 Odpovědi na zadané otazky:
 1. Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
