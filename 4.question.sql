@@ -1,35 +1,44 @@
 -- 4. otázka: Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (větší než 10 %)?
 
-with food_prices as ( 
-	select 
-		year,
-		(price_milk + price_bread) / 2 as avg_food_price
-	from t_karolina_hynkova_project_sql_primary_final 
+WITH yearly_food_prices AS (
+    SELECT
+        year,
+        ROUND(AVG(avg_price), 2) AS avg_food_price
+    FROM t_karolina_hynkova_project_sql_primary_final
+    GROUP BY year
 ),
-yearly_changes as ( 
-	select 
-		p.year,
-		p.avg_food_price,
-		t.avg_wage,
-		round(
-			(p.avg_food_price - lag(p.avg_food_price) over (order by p.year))
-			/ nullif(lag(p.avg_food_price) over (order by p.year), 0) * 100, 2) as food_yoy,
-		round(
-			(t.avg_wage - lag(t.avg_wage) over (order by t.year))
-			/ nullif(lag(t.avg_wage) over (order by t.year), 0) * 100, 2) as wage_yoy			
-	from food_prices p
-	join t_karolina_hynkova_project_sql_primary_final t
-		on p.year = t.year
-)	
-select
-	year,
-	food_yoy,
-	wage_yoy,
-	(food_yoy - wage_yoy) as diff
-from yearly_changes 
-where (food_yoy - wage_yoy) >= 10;
+yearly_wages AS (
+    SELECT
+        year,
+        ROUND(AVG(avg_wage), 2) AS avg_wage
+    FROM t_karolina_hynkova_project_sql_primary_final
+    GROUP BY year
+),
+yearly_changes AS (
+    SELECT
+        f.year,
+        f.avg_food_price,
+        w.avg_wage,
+        ROUND(
+            (f.avg_food_price - LAG(f.avg_food_price) OVER (ORDER BY f.year))
+            / NULLIF(LAG(f.avg_food_price) OVER (ORDER BY f.year), 0) * 100, 2) AS food_yoy,
+        ROUND(
+            (w.avg_wage - LAG(w.avg_wage) OVER (ORDER BY w.year))
+            / NULLIF(LAG(w.avg_wage) OVER (ORDER BY w.year), 0) * 100, 2) AS wage_yoy
+    FROM yearly_food_prices f
+    JOIN yearly_wages w
+        ON f.year = w.year
+)
+SELECT
+    year,
+    food_yoy,
+    wage_yoy,
+    ROUND(food_yoy - wage_yoy, 2) AS diff
+FROM yearly_changes
+WHERE food_yoy - wage_yoy >= 10
+ORDER BY year;
 
--- vytvořili jsme nový sloupec s prům. cenou reprezentativních potravin
---výpočet procentuálního růstu cen potravin a mzdy pro každý rok
--- vyfitrování roků kde je rozdíl >= 10%
--- odpovědí je, že jsou dva roky 2008 a 2011, kde je výšší růst cen potravin než mezd o více než 10%
+-- nový sloupec s prům. cenou potravin za rok
+-- spočítání meziročního růstu potravin a mezd
+-- vyfitrování roků kde je rozdíl >= 10% (neni žádný)
+-- kontrola bez WHERE food_yoy - wage_yoy >= 10 
