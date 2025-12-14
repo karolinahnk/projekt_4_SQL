@@ -1,28 +1,31 @@
 -- 2. otázka: Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?
 
-select 
-	year,
-	avg_wage,
-	price_milk,
-	price_bread,
-	round(avg_wage / price_milk, 2) as litres_of_milk,
-	round(avg_wage / price_bread, 2) as kg_of_bread
-from t_karolina_hynkova_project_sql_primary_final
-where price_milk is not null and price_bread is not null 
-order by year asc 
-limit 1;
--- za 1. srovnatelné obd. rok 2006 si lze koupit 1.431,93 litrů mléka a 1.282,69 kg chleba
-
-select 
-	year,
-	avg_wage,
-	price_milk,
-	price_bread,
-	round(avg_wage / price_milk, 2) as litres_of_milk,
-	round(avg_wage / price_bread, 2) as kg_of_bread
-from t_karolina_hynkova_project_sql_primary_final
-where price_milk is not null and price_bread is not null 
-order by year desc 
-limit 1;
--- za poslední srovnatelné obd. rok 20018 si lze koupit 1.639,01 litrů mléka a 1.340,14 kg chleba
--- lze si tedy koupit více l mléka a více kg chleba než na začátku srovnatelného obd.
+WITH milk_bread AS (
+    SELECT
+        year,
+        food_category_name,
+        AVG(avg_wage) AS avg_wage,
+        AVG(avg_price) AS avg_price
+    FROM t_karolina_hynkova_project_sql_primary_final
+    WHERE food_category_name IN ('Mléko polotučné pasterované', 'Chléb konzumní kmínový')
+    GROUP BY year, food_category_name
+),
+bounds AS (
+    SELECT
+        MIN(year) AS first_year,
+        MAX(year) AS last_year
+    FROM milk_bread
+)
+SELECT
+    mb.year,
+    mb.food_category_name,
+    mb.avg_wage,
+    mb.avg_price,
+    ROUND(mb.avg_wage / mb.avg_price, 2) AS purchasable_amount
+FROM milk_bread mb
+JOIN bounds b
+    ON mb.year IN (b.first_year, b.last_year)
+ORDER BY
+    mb.year,
+    mb.food_category_name;
+-- vybrání dat jen pro mléko a chléb. Pomocí fce MIN a MAX vybrané první a poslední srov. obd.
