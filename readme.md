@@ -1,4 +1,5 @@
 **SQL projekt: Analýza mezd a cen potravin v ČR a vliv HDP**
+
 **Autor: Karolína Hynková**
 
 Cílem projektu bylo zanalyzovat vývoj mezd a cen potravin v ČR a porovnat je s ekonomickými ukazateli HDP. Projekt odpovídá na 5 výzkumných otázek a využívá veřejná data: 
@@ -28,7 +29,7 @@ Odpovědi na zadané otazky:
 - V prvním srovnatelném období si šlo koupit výrazně méně l mléka a kg chleba než v posledním srovnatelném roce
 - Za 1. srovnatelné obd. rok 2006 si lze koupit 1.431,93 litrů mléka a 1.282,69 kg chleba
 - Za poslední srovnatelné obd. rok 2018 si lze koupit 1.639,01 litrů mléka a 1.340,14 kg chleba
-- Z toho plyne, že růst mezd překonal růst potravin, ale nelze si koupit tolik litrů mléka a kilogramů chleba zárověň.
+- Z toho plyne, že růst mezd překonal růst potravin, ale nelze si koupit tolik litrů mléka a kilogramů chleba zároveň.
 
 **3. Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?**
 - Nejpomaleji zdražuje cukr krystal tempem -1,92%
@@ -46,8 +47,8 @@ Odpovědi na zadané otazky:
 
 **Závěr projektu:**
 - Mzdy v ČR mají dlouhodobě rostoucí trend, přestože některá odvětví zažila krátkodobé propady.
-- Dostupnost mléka a chleba se výrazně zlepšila, peorože mzdy rostly rychleji než ceny.
+- Dostupnost mléka a chleba se výrazně zlepšila, protože mzdy rostly rychleji než ceny, Ale nelze si koupit stejné množství zároveň
 - Nejstabilnější položkou je cukr krystal, který v průměru dokonce zlevňoval. Smutné zjištění.
-- V 2008 a 2011 došlo k mimořádnému růstu cen potravin.
+- Neexistuje výrazně větší odchylka než 10%, kde by byl výrazný rozdíl růst cen potravin a mezd
 - HDP silně koreluje s růstem mezd, ale né s cenami potravin
 - Česká ekonomika tedy dlouhodobě posiluje a růst životní úrovně se promítá hlavně do rostoucích mezd a lepší dostupnosti potravin. 
