@@ -19,17 +19,13 @@ Sekundární tabulka: t_karolina_hynkova_project_sql_secondary_final
 Odpovědi na zadané otazky:
 
 **1. Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?**
-- Ve většině odvětví mzdy dlouhodobě a stabilně rostou
-- Existují roky s poklesem, hlavně kolem roku 2009 (ekonomická krize)
-- Po roce 2013 nastává vytrvalý růst napříč skoro všemi odvětvími
-- Mzdy nerostou rovnoměrně ve všech odvětví, ale dlouhodobý trend je růstový
-- Odvětví nejsou vyplněna všude, vyskutuje se hodnota NULL
+- Mzdy nerostou ve všech odvětví nepřetržitě
+- Existují roky s poklesem, hlavně v letech 2009 - 2011 a 2013 (ekonomická krize)
 
 **2. Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelný rok?**
-- V prvním srovnatelném období si šlo koupit výrazně méně l mléka a kg chleba než v posledním srovnatelném roce
-- Za 1. srovnatelné obd. rok 2006 si lze koupit 1.431,93 litrů mléka a 1.282,69 kg chleba
-- Za poslední srovnatelné obd. rok 2018 si lze koupit 1.639,01 litrů mléka a 1.340,14 kg chleba
-- Z toho plyne, že růst mezd překonal růst potravin, ale nelze si koupit tolik litrů mléka a kilogramů chleba zároveň.
+- V prvním srovnatelném období si šlo koupit výrazně méně l mléka nebo kg chleba než v posledním srovnatelném roce
+- Za 1. srovnatelné obd. rok 2006 si lze koupit 1.431,93 litrů mléka nebo 1.282,69 kg chleba
+- Za poslední srovnatelné obd. rok 2018 si lze koupit 1.639,01 litrů mléka nebo 1.340,14 kg chleba
 
 **3. Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?**
 - Nejpomaleji zdražuje cukr krystal tempem -1,92%
@@ -47,7 +43,7 @@ Odpovědi na zadané otazky:
 
 **Závěr projektu:**
 - Mzdy v ČR mají dlouhodobě rostoucí trend, přestože některá odvětví zažila krátkodobé propady.
-- Dostupnost mléka a chleba se výrazně zlepšila, protože mzdy rostly rychleji než ceny, Ale nelze si koupit stejné množství zároveň
+- Dostupnost mléka nebo chleba se výrazně zlepšila, protože mzdy rostly rychleji než ceny.
 - Nejstabilnější položkou je cukr krystal, který v průměru dokonce zlevňoval. Smutné zjištění.
 - Neexistuje výrazně větší odchylka než 10%, kde by byl výrazný rozdíl růst cen potravin a mezd
 - HDP silně koreluje s růstem mezd, ale né s cenami potravin
