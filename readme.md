@@ -3,9 +3,9 @@
 **Autor: Karolína Hynková**
 
 Cílem projektu bylo zanalyzovat vývoj mezd a cen potravin v ČR a porovnat je s ekonomickými ukazateli HDP. Projekt odpovídá na 5 výzkumných otázek a využívá veřejná data: 
-czechia_payroll - mzdy
-czechia_price - ceny potravin
-economies - makroekonomická data
+- czechia_payroll - mzdy
+- czechia_price - ceny potravin
+- economies - makroekonomická data
 a další
 
 Výsledkem jsou 2 vytvořené tabulky:
